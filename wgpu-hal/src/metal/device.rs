@@ -1301,6 +1301,7 @@ impl crate::Device for super::Device {
                 num_workgroups,
             } => {
                 let options = MTLCompileOptions::new();
+                options.setLanguageVersion(self.shared.private_caps.msl_version);
                 // Obtain the device from shared
                 let device = &self.shared.device;
                 let library = device
